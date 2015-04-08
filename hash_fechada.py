@@ -11,7 +11,7 @@ class Hash_fechada():
         return str(self.tabela)
     
     def inserir(self, elemento):
-        pos = int(elemento[:2]) % self.tam
+        pos = int(elemento[:elemento.find(":")]) % self.tam
         
         if self.tabela[pos] == "vazio":
             self.tabela.pop(pos)
@@ -29,17 +29,17 @@ class Hash_fechada():
     def remover(self, indice):
         pos = indice % self.tam
         
-        if self.tabela[pos] != "vazio" and indice == int(self.tabela[pos][:2]):
+        if self.tabela[pos] != "vazio" and indice == int(self.tabela[pos][:self.tabela.find(":")]):
             self.tabela.pop(pos)
             self.tabela.insert(pos, "vazio")
             
             for elem in self.tabela:
-                if elem != "vazio" and int(elem[:2]) % self.tam == pos:
+                if elem != "vazio" and int(elem[:elem.find(":")]) % self.tam == pos:
                     self.tabela.pop(self.tabela.index(elem))
                     self.tabela.insert(pos, elem)
                     break
         else:
-            while self.tabela[pos] != "vazio" and indice != int(self.tabela[pos][:2]):
+            while self.tabela[pos] != "vazio" and indice != int(self.tabela[pos][:self.tabela.find(":")]):
                 if pos + 1 == self.tam:
                     pos = 0
                 else:
@@ -49,7 +49,7 @@ class Hash_fechada():
             self.tabela.insert(pos, "vazio")
             
             for elem in self.tabela:
-                if elem != "vazio" and int(elem[:2]) % self.tam == pos:
+                if elem != "vazio" and int(elem[:elem.find(":")]) % self.tam == pos:
                     self.tabela.pop(self.tabela.index(elem))
                     self.tabela.insert(pos, elem)
                     break
