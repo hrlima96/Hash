@@ -29,7 +29,7 @@ class Hash_fechada():
     def remover(self, indice):
         pos = indice % self.tam
         
-        if self.tabela[pos] != "vazio" and indice == int(self.tabela[pos][:self.tabela.find(":")]):
+        if self.tabela[pos] != "vazio" and indice == int(self.tabela[pos][:self.tabela[pos].find(":")]):
             self.tabela.pop(pos)
             self.tabela.insert(pos, "vazio")
             
@@ -39,7 +39,7 @@ class Hash_fechada():
                     self.tabela.insert(pos, elem)
                     break
         else:
-            while self.tabela[pos] != "vazio" and indice != int(self.tabela[pos][:self.tabela.find(":")]):
+            while self.tabela[pos] != "vazio" and indice != int(self.tabela[pos][:self.tabela[pos].find(":")]):
                 if pos + 1 == self.tam:
                     pos = 0
                 else:
