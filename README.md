@@ -1,2 +1,2 @@
-# Hash_fechada
-Implementação de Tabela de dispersão fechada.
+# Hash
+Implementação de Tabela de dispersão.
