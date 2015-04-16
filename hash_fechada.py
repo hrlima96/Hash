@@ -2,6 +2,7 @@ class Hash_fechada():
     
     tabela = []
     tam = 0
+    num_elementos = 1
     
     def __init__(self, tam):
         self.tam = tam
@@ -11,6 +12,10 @@ class Hash_fechada():
         return str(self.tabela)
     
     def inserir(self, elemento):
+        if self.num_elementos == self.tam - 1:
+            print "Nao pode mais inserir!"
+            return
+        
         pos = int(elemento[:elemento.find(":")]) % self.tam
         
         if self.tabela[pos] == "vazio":
@@ -25,6 +30,9 @@ class Hash_fechada():
             
             self.tabela.pop(pos)
             self.tabela.insert(pos, elemento)
+            
+            self.num_elementos += 1
+            print self.num_elementos
             
     def remover(self, indice):
         pos = indice % self.tam
@@ -66,4 +74,4 @@ class Hash_fechada():
                     pos += 1
                    
                 if indice == int(self.tabela[pos][:self.tabela[pos].find(":")]):
-                    print self.tabela[pos][self.tabela[pos].find(":") + 2:]
+                    return self.tabela[pos][self.tabela[pos].find(":") + 2:]
