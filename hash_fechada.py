@@ -53,3 +53,17 @@ class Hash_fechada():
                     self.tabela.pop(self.tabela.index(elem))
                     self.tabela.insert(pos, elem)
                     break
+                
+    def busca(self, indice):
+        pos = indice % self.tam
+        if self.tabela[pos] != "vazio" and indice == int(self.tabela[pos][:self.tabela[pos].find(":")]):
+            print self.tabela[pos]
+        else:
+            while self.tabela[pos] != "vazio" and indice != int(self.tabela[pos][:self.tabela[pos].find(":")]):
+                if pos + 1 == self.tam:
+                    pos = 0
+                else:
+                    pos += 1
+                   
+                if indice == int(self.tabela[pos][:self.tabela[pos].find(":")]):
+                    print self.tabela[pos][self.tabela[pos].find(":") + 2:]
