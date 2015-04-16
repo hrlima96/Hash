@@ -20,3 +20,10 @@ class Hash_aberta():
         for elem in self.tabela[pos]:
             if indice == int(elem[:elem.find(":")]):
                 self.tabela[pos].pop(self.tabela[pos].index(elem))
+                
+    def busca(self, indice):
+        pos = indice % self.tam
+        
+        for elem in self.tabela[pos]:
+            if indice == int(elem[:elem.find(":")]): 
+                print elem[elem.find(":") + 2:]
