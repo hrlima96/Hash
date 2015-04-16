@@ -26,4 +26,4 @@ class Hash_aberta():
         
         for elem in self.tabela[pos]:
             if indice == int(elem[:elem.find(":")]): 
-                print elem[elem.find(":") + 2:]
+                return elem[elem.find(":") + 2:]
