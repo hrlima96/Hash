@@ -32,7 +32,6 @@ class Hash_fechada():
             self.tabela.insert(pos, elemento)
             
             self.num_elementos += 1
-            print self.num_elementos
             
     def remover(self, indice):
         pos = indice % self.tam
