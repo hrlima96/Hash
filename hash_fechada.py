@@ -12,7 +12,7 @@ class Hash_fechada():
         return str(self.tabela)
     
     def inserir(self, elemento):
-        if self.num_elementos == self.tam - 1:
+        if self.num_elementos == self.tam:
             print "Nao pode mais inserir!"
             return
         
